@@ -62,12 +62,12 @@
 
                 <!-- Contacts List -->
                 <ul class="contacts-list">
-                    <li class="contact">
+                    <li class="contact" v-for="contact in contacts">
                         <div class="contact-image">
-                            <img src="img/avatar_1.jpg" alt="avatar 1">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar 1">
                         </div>
                         <div class="contact-text">
-                            <h4 class="name">Michele</h4>
+                            <h4 class="name">{{contact.name}}</h4>
                             <p class="last-message">Ultimo messaggio inviato</p>
                         </div>
                         <div class="contact-time">12:00</div>
