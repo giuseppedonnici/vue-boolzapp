@@ -109,6 +109,7 @@ img {
 
 .search input {
     width: 100%;
+    padding-left: .5rem;
 }
 
 .search-icon {
@@ -185,3 +186,30 @@ ul li img {
 }
 
 /* Main */
+.chat-main {
+    height: calc(100% - 90px);
+}
+
+/* Footer */
+.chat-footer {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    padding: .5rem;
+    background-color: #F3EEEA;
+}
+
+.chat-footer .smile,
+.chat-footer .microphone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    padding-left: .5rem;
+    border: unset;
+    border-radius: 5px;
+}
