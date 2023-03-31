@@ -57,6 +57,7 @@ img {
 
 .my-profile-functions span {
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 /* Banner */
@@ -76,6 +77,7 @@ img {
     font-size: 0.8rem;
     text-decoration: underline;
     color: #B1B1B1;
+    cursor: pointer;
 }
 
 .circle {
@@ -86,6 +88,7 @@ img {
     height: 40px;
     border-radius: 50%;
     background-color: white;
+    cursor: pointer;
 }
 
 .circle span {
@@ -119,6 +122,7 @@ img {
     border-top: 1px solid #767676;
     border-left: 1px solid #767676;
     border-bottom: 1px solid #767676;
+    cursor: pointer;
 }
 
 /* Contacts List */
@@ -156,8 +160,6 @@ ul li img {
 .chat {
     width: 60%;
     height: 100%;
-    /* debug */
-    background-color: lightgreen;
 }
 
 /* Header */
@@ -183,11 +185,49 @@ ul li img {
 
 .chat-functions span {
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 /* Main */
 .chat-main {
     height: calc(100% - 90px);
+    padding: 1rem;
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
+}
+
+.row.sent {
+    display: flex;
+    justify-content: end;
+    margin-bottom: .5rem;
+}
+
+.row.received {
+    display: flex;
+    justify-content: start;
+    margin-bottom: .5rem;
+}
+
+.msg {
+    min-width: 40%;
+    max-width: 60%;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+}
+
+.msg .time {
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+.msg.sent {
+    background-color: aquamarine;
+}
+
+.msg.received {
+    background-color: white;
 }
 
 /* Footer */
@@ -205,6 +245,7 @@ ul li img {
     align-items: center;
     justify-content: center;
     width: 50px;
+    cursor: pointer;
 }
 
 .chat-footer input {
