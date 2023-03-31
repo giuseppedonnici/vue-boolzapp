@@ -14,6 +14,7 @@ img {
     border-radius: 50%;
 }
 
+/* LAYOUT */
 .wrapper {
     display: flex;
     justify-content: center;
@@ -27,16 +28,13 @@ img {
     display: flex;
     width: 1000px;
     height: 600px;
-    /* debug */
-    border: 1px solid red;
 }
 
 /* CONTACTS */
 .contacts {
     width: 40%;
     height: 100%;
-    /* debug */
-    background-color: lightcoral;
+    background-color: white;
 }
 
 /* Header */
@@ -44,6 +42,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-right: 1px solid black;
 }
 
 .my-profile {
@@ -152,8 +151,9 @@ ul li img {
     width: 250px;
 }
 
+.contact-time,
 .last-message {
-    font-size: 0.8rem;
+    font-size: .8rem;
 }
 
 /* CHAT */
@@ -219,7 +219,7 @@ ul li img {
 
 .msg .time {
     text-align: right;
-    font-size: 0.7rem;
+    font-size: .7rem;
 }
 
 .msg.sent {
