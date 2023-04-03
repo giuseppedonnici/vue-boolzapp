@@ -18,6 +18,14 @@ createApp({
     data() {
         return {
             activeIndex: 0,
+            newMessage: {
+                message: '',
+                status: 'sent'
+            },
+            replyMessage: {
+                message: 'ok',
+                status: 'received'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -187,7 +195,21 @@ createApp({
         activeContact(index) {
             this.activeIndex = index;
             console.log(this.activeIndex);
-        } 
-        
+        },
+
+        messageToPush() {
+            if(this.newMessage.message != '') {
+                this.contacts[this.activeIndex].messages.push(this.newMessage);
+                this.newMessage = {
+                    message: '',
+                    status: 'sent'
+                };
+                setTimeout(this.responseMessage, 1000);
+            }
+        },
+
+        responseMessage() {
+            this.contacts[this.activeIndex].messages.push(this.replyMessage);
+        }
     }
 }).mount('#app')
