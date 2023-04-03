@@ -55,14 +55,14 @@
                         <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="nameToCheck" @keyup="check(nameToCheck)">
                     </div>
                 </div>
                 <!-- /Search -->
 
                 <!-- Contacts List -->
                 <ul class="contacts-list">
-                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts" @click="activeContact(index)">
+                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts" @click="activeContact(index)" v-show="contact.visible">
                         <div class="contact-image">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar ${contact.name}`">
                         </div>

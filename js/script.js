@@ -14,10 +14,12 @@ const {createApp} = Vue;
 const dt = luxon.DateTime;
 console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS));
 
+const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || ""
 createApp({
     data() {
         return {
             activeIndex: 0,
+            nameToCheck: '',
             newMessage: {
                 message: '',
                 status: 'sent'
@@ -192,11 +194,13 @@ createApp({
         }
     },
     methods: {
+        // per gestire il contatto attivo
         activeContact(index) {
             this.activeIndex = index;
             console.log(this.activeIndex);
         },
 
+        // per gestire il messaggio da pushare come "inviato" e relativa risposta dopo 1 secondo
         messageToPush() {
             if(this.newMessage.message != '') {
                 this.contacts[this.activeIndex].messages.push(this.newMessage);
@@ -208,8 +212,22 @@ createApp({
             }
         },
 
+        // funzione che genera il messaggio di risposta 
         responseMessage() {
             this.contacts[this.activeIndex].messages.push(this.replyMessage);
+        },
+        
+        // controlla che il primo campo non sia vuoto, setta la visibilità di tutti i contatti a false e imposta true 
+        // solo a quelli che contengono le lettere digitate dall'utente
+        check(nameToCheck) {
+            if(nameToCheck[0] != ' ') {
+                this.contacts.forEach(contact => {
+                    contact.visible = false;
+                    if(contact.name.includes(capitalize(nameToCheck))) {
+                        contact.visible = true;
+                    }
+                });
+            }
         }
     }
 }).mount('#app')
