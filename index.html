@@ -64,7 +64,7 @@
                 <ul class="contacts-list">
                     <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts" @click="activeContact(index)">
                         <div class="contact-image">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar 1">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar ${contact.name}`">
                         </div>
                         <div class="contact-text">
                             <h4 class="name">{{contact.name}}</h4>
@@ -83,10 +83,10 @@
                 <!-- Header -->
                 <header class="chat-header">
                     <div class="chat-image">
-                        <img src="img/avatar_1.jpg" alt="avatar 1">
+                        <img :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" :alt="`avatar ${contacts[activeIndex].name}`">
                     </div>
                     <div class="chat-text">
-                        <h4 class="name">Michele</h4>
+                        <h4 class="name">{{contacts[activeIndex].name}}</h4>
                         <p class="last-message">Ultimo accesso oggi alle 12:00</p>
                     </div>
                     <div class="chat-functions">
@@ -98,55 +98,20 @@
                 <!-- /Header -->
                 <!-- Main -->
                 <main class="chat-main">
-                    <div class="row sent">
-                        <div class="msg sent">
-                            <p class="txt">Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?</p>
+                    <div class="row" :class="`${message.status}`" v-for="message in contacts[activeIndex].messages">
+                        <div class="msg" :class="`${message.status}`">
+                            <p class="txt">{{message.message}}</p>
                             <p class="time">15:30</p>
                         </div>
                     </div>
 
-                    <div class="row received">
+                    <!-- <div class="row received">
                         <div class="msg received">
                             <p class="txt">Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?</p>
                             <p class="time">15:30</p>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="row sent">
-                        <div class="msg sent">
-                            <p class="txt">Hai portato a spasso il cane?</p>
-                            <p class="time">15:30</p>
-                        </div>
-                    </div>
-
-                    <div class="row received">
-                        <div class="msg received">
-                            <p class="txt">Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?</p>
-                            <p class="time">15:30</p>
-                        </div>
-                    </div>
-
-                    <div class="row sent">
-                        <div class="msg sent">
-                            <p class="txt">Hai portato a spasso il cane?</p>
-                            <p class="time">15:30</p>
-                        </div>
-                    </div>
-
-                    <div class="row sent">
-                        <div class="msg sent">
-                            <p class="txt">Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?</p>
-                            <p class="time">15:30</p>
-                        </div>
-                    </div>
-
-                    <div class="row sent">
-                        <div class="msg sent">
-                            <p class="txt">Hai portato a spasso il cane?</p>
-                            <p class="time">15:30</p>
-                        </div>
-                    </div>
-    
                 </main>
                 <!-- /Main -->
     
