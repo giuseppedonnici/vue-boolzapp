@@ -62,7 +62,7 @@
 
                 <!-- Contacts List -->
                 <ul class="contacts-list">
-                    <li class="contact" v-for="contact in contacts">
+                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts" @click="activeContact(index)">
                         <div class="contact-image">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar 1">
                         </div>
@@ -169,7 +169,8 @@
     </div>
 
     </div>
-
+    <!-- Luxon library -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

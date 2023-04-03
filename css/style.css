@@ -131,11 +131,18 @@ img {
     list-style-type: none;
 }
 
+.active {
+    background-color: #767676;
+}
+
 .contact {
     display: flex;
     padding-top: .5rem;
     height: 60px;
-    background-color: #009688;
+}
+
+.contacts-list li {
+    border-bottom: 1px solid black;
 }
 
 ul li img {

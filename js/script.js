@@ -11,9 +11,13 @@ tutto dinamico? Forse mi serve una classe per distinguere i messaggi innviati da
 
 const {createApp} = Vue;
 
+const dt = luxon.DateTime;
+console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS));
+
 createApp({
     data() {
         return {
+            activeIndex: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -177,7 +181,13 @@ createApp({
                     ],
                 }
             ]
-
         }
+    },
+    methods: {
+        activeContact(index) {
+            this.activeIndex = index;
+            console.log(this.activeIndex);
+        } 
+        
     }
 }).mount('#app')
