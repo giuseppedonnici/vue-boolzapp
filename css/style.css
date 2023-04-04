@@ -144,6 +144,7 @@ img {
 
 .contacts-list li {
     border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
 ul li img {
@@ -217,6 +218,7 @@ ul li img {
 }
 
 .msg {
+    position: relative;
     min-width: 40%;
     max-width: 60%;
     padding-top: 0.5rem;
@@ -225,9 +227,47 @@ ul li img {
     border-radius: 10px;
 }
 
+.angle-down {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    padding: 5px;
+
+}
+
+.msg-options {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    z-index: 99;
+    width: 175px;
+    height: 75px;
+    background-color: lightsalmon;
+    display: none;
+}
+
+.msg-options p {
+    padding: .5rem;
+    padding-left: 1.8rem;
+    
+}
+
+.d-none {
+    display: none;
+}
+
+.msg:hover .d-none {
+    display: unset;
+}
+
+.msg .txt {
+    padding-right: 2rem;
+}
+
 .msg .time {
     text-align: right;
     font-size: .7rem;
+    word-break: break-word;
 }
 
 .msg.sent {

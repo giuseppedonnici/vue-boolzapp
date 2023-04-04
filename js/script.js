@@ -212,7 +212,7 @@ createApp({
                 const dialogIndex = this.activeIndex;
                 setTimeout(() => {
                     this.responseMessage(dialogIndex);
-                }, 3000);
+                }, 1000);
             }
         },
 

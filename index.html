@@ -98,10 +98,15 @@
                 <!-- /Header -->
                 <!-- Main -->
                 <main class="chat-main">
-                    <div class="row" :class="message.status" v-for="message in contacts[activeIndex].messages">
+                    <div class="row" :class="message.status" v-for="(message, index) in contacts[activeIndex].messages">
                         <div class="msg" :class="message.status">
                             <p class="txt">{{message.message}}</p>
                             <p class="time">{{ getDateTime(message.date) }}</p>
+                            <span class="angle-down d-none"><i class="fa-solid fa-angle-down"></i></span>
+                            <div class="msg-options">
+                                <p class="msg-info">Message info</p>
+                                <p class="msg-delete">Delete message</p>
+                            </div>
                         </div>
                     </div>
 
