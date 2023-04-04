@@ -23,12 +23,12 @@ createApp({
             nameToCheck: '',
             newMessage: {
                 message: '',
-                date: dt.now().toFormat("dd/MM/yyyy hh:mm:ss"),
+                date: this.getNowDate(),
                 status: 'sent'
             },
             replyMessage: {
                 message: 'ok',
-                date: dt.now().toFormat("dd/MM/yyyy hh:mm:ss"),
+                date: this.getNowDate(),
                 status: 'received'
             },
             contacts: [
@@ -236,5 +236,10 @@ createApp({
             const myDate = dt.fromFormat(dateStr, "dd/mm/yyyy hh:mm:ss");
             return myDate.toLocaleString(dt.TIME_24_SIMPLE);
         },
+
+        // funzione di comodità per prendere la data in questo momento
+        getNowDate() {
+            return dt.now().toFormat("dd/MM/yyyy HH:mm:ss");
+        }
     }
 }).mount('#app')
