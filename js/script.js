@@ -209,13 +209,16 @@ createApp({
                 this.newMessage = {
                     message: '',
                 };
-                setTimeout(this.responseMessage, 1000);
+                const dialogIndex = this.activeIndex;
+                setTimeout(() => {
+                    this.responseMessage(dialogIndex);
+                }, 3000);
             }
         },
 
         // funzione che genera il messaggio di risposta 
-        responseMessage() {
-            this.contacts[this.activeIndex].messages.push(this.replyMessage);
+        responseMessage(dialogIndex) {
+            this.contacts[dialogIndex].messages.push(this.replyMessage);
         },
         
         // controlla che il primo campo non sia vuoto, setta la visibilità di tutti i contatti a false e imposta true 
