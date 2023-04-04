@@ -23,10 +23,12 @@ createApp({
             nameToCheck: '',
             newMessage: {
                 message: '',
+                date: dt.now().toFormat("dd/MM/yyyy hh:mm:ss"),
                 status: 'sent'
             },
             replyMessage: {
                 message: 'ok',
+                date: dt.now().toFormat("dd/MM/yyyy hh:mm:ss"),
                 status: 'received'
             },
             contacts: [
@@ -206,7 +208,6 @@ createApp({
                 this.contacts[this.activeIndex].messages.push(this.newMessage);
                 this.newMessage = {
                     message: '',
-                    status: 'sent'
                 };
                 setTimeout(this.responseMessage, 1000);
             }
