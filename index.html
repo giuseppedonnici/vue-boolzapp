@@ -98,10 +98,10 @@
                 <!-- /Header -->
                 <!-- Main -->
                 <main class="chat-main">
-                    <div class="row" :class="`${message.status}`" v-for="message in contacts[activeIndex].messages">
-                        <div class="msg" :class="`${message.status}`">
+                    <div class="row" :class="message.status" v-for="message in contacts[activeIndex].messages">
+                        <div class="msg" :class="message.status">
                             <p class="txt">{{message.message}}</p>
-                            <p class="time">15:30</p>
+                            <p class="time">{{ getDateTime(message.date) }}</p>
                         </div>
                     </div>
 
@@ -120,7 +120,7 @@
                     <div class="smile">
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="messageToPush">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage.message" @keyup.enter="messageToPush">
                     <div class="microphone">
                         <i class="fa-solid fa-microphone"></i>
                     </div>

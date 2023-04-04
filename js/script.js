@@ -11,10 +11,11 @@ tutto dinamico? Forse mi serve una classe per distinguere i messaggi innviati da
 
 const {createApp} = Vue;
 
+// per comodità salvo la libreria luxon in una variabile
 const dt = luxon.DateTime;
 console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS));
 
-const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || ""
+const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || "";
 createApp({
     data() {
         return {
@@ -197,9 +198,8 @@ createApp({
         // per gestire il contatto attivo
         activeContact(index) {
             this.activeIndex = index;
-            console.log(this.activeIndex);
         },
-
+        
         // per gestire il messaggio da pushare come "inviato" e relativa risposta dopo 1 secondo
         messageToPush() {
             if(this.newMessage.message != '') {
@@ -228,6 +228,12 @@ createApp({
                     }
                 });
             }
-        }
+        },
+
+        // funzione che mi serve per estrapolare l'orario dal formato data che gli passo
+        getDateTime(dateStr) {
+            const myDate = dt.fromFormat(dateStr, "dd/mm/yyyy hh:mm:ss");
+            return myDate.toLocaleString(dt.TIME_24_SIMPLE);
+        },
     }
 }).mount('#app')
