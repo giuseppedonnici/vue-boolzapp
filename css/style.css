@@ -232,7 +232,7 @@ ul li img {
     top: 0;
     right: 8px;
     padding: 5px;
-
+    display: none;
 }
 
 .msg-options {
@@ -251,11 +251,11 @@ ul li img {
     padding-left: 1.8rem;
 }
 
-.d-none {
-    display: none;
+.display {
+    display: unset;
 }
 
-.msg:hover .d-none {
+.msg:hover .angle-down {
     display: unset;
 }
 

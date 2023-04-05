@@ -21,6 +21,8 @@ createApp({
         return {
             activeIndex: 0,
             nameToCheck: '',
+            isMessageActive: false,
+            messageIndex: 0,
             newMessage: {
                 message: '',
                 date: this.getNowDate(),
@@ -247,8 +249,10 @@ createApp({
             return dt.now().toFormat("dd/MM/yyyy HH:mm:ss");
         },
 
-        show(index) {
-            console.log(index);
+        // funzione per gestire la visualizzazione delle opzioni sul singolo messaggio
+        showOptions(index) {
+            this.messageIndex = index,
+            this.isMessageActive = !this.isMessageActive;
         }
     }
 }).mount('#app')

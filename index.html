@@ -55,18 +55,24 @@
                         <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="nameToCheck"
-                            @keyup="check(nameToCheck)">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                        v-model="nameToCheck"
+                        @keyup="check(nameToCheck)">
                     </div>
                 </div>
                 <!-- /Search -->
 
                 <!-- Contacts List -->
                 <ul class="contacts-list">
-                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts"
-                        @click="activeContact(index)" v-show="contact.visible">
+                    <li 
+                    :class="{'active' : index === activeIndex}" 
+                    class="contact" 
+                    v-for="(contact, index) in contacts"
+                    @click="activeContact(index)" 
+                    v-show="contact.visible">
                         <div class="contact-image">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar ${contact.name}`">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" 
+                            :alt="`avatar ${contact.name}`">
                         </div>
                         <div class="contact-text">
                             <h4 class="name">{{contact.name}}</h4>
@@ -101,12 +107,19 @@
                 <!-- /Header -->
                 <!-- Main -->
                 <main class="chat-main">
-                    <div class="row" :class="message.status" v-for="(message, index) in contacts[activeIndex].messages">
+                    <div class="row" 
+                    :class="message.status" 
+                    v-for="(message, index) in contacts[activeIndex].messages" 
+                    @mouseleave=" isMessageActive = false">
                         <div class="msg" :class="message.status">
                             <p class="txt">{{message.message}}</p>
                             <p class="time">{{ getDateTime(message.date) }}</p>
-                            <span class="angle-down d-none"><i class="fa-solid fa-angle-down" @click="show(index)"></i></span>
-                            <div class="msg-options">
+                            <span class="angle-down" 
+                            @click="showOptions(index)">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span>
+                            <div class="msg-options" 
+                            :class="{'display' : isMessageActive && messageIndex === index}">
                                 <p class="msg-info">Message info</p>
                                 <p class="msg-delete">Delete message</p>
                             </div>
@@ -129,8 +142,9 @@
                     <div class="smile">
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage.message"
-                        @keyup.enter="messageToPush">
+                    <input type="text" placeholder="Scrivi un messaggio" 
+                    v-model.trim="newMessage.message"
+                    @keyup.enter="messageToPush">
                     <div class="microphone">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
