@@ -133,7 +133,7 @@ img {
 }
 
 .active {
-    background-color: #767676;
+    background-color: lightgray;
 }
 
 .contact {
@@ -242,14 +242,21 @@ ul li img {
     z-index: 99;
     width: 175px;
     height: 75px;
-    background-color: lightsalmon;
+    border-radius: 5px;
+    box-shadow: 2px 5px 7px 0px black;
+    background-color: white;
     display: none;
 }
 
 .msg-options p {
     padding: .5rem;
     padding-left: 1.8rem;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.msg-options P:hover {
+    background-color: lightgray;
 }
 
 .display {
