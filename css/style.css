@@ -157,7 +157,7 @@ ul li img {
 }
 
 .contact-text {
-    width: 250px;
+    width: 175px;
 }
 
 .contact-time,
@@ -269,12 +269,12 @@ ul li img {
 
 .msg .txt {
     padding-right: 2rem;
+    word-break: break-word;
 }
 
 .msg .time {
     text-align: right;
     font-size: .7rem;
-    word-break: break-word;
 }
 
 .msg.sent {

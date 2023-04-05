@@ -76,9 +76,9 @@
                         </div>
                         <div class="contact-text">
                             <h4 class="name">{{contact.name}}</h4>
-                            <p class="last-message">Ultimo messaggio inviato</p>
+                            <p class="last-message">{{contact.messages[contact.messages.length - 1].message}}</p>
                         </div>
-                        <div class="contact-time">12:00</div>
+                        <div class="contact-time">{{contact.messages[contact.messages.length - 1].date}}</div>
                     </li>
 
                 </ul>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="chat-text">
                         <h4 class="name">{{contacts[activeIndex].name}}</h4>
-                        <p class="last-message">Ultimo accesso oggi alle 12:00</p>
+                        <p class="last-message">Ultimo accesso oggi alle 12.00</p>
                     </div>
                     <div class="chat-functions">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
