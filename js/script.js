@@ -208,6 +208,8 @@ createApp({
                 this.contacts[this.activeIndex].messages.push(this.newMessage);
                 this.newMessage = {
                     message: '',
+                    date: this.getNowDate(),
+                    status: 'sent'
                 };
                 const dialogIndex = this.activeIndex;
                 setTimeout(() => {
@@ -236,13 +238,17 @@ createApp({
 
         // funzione che mi serve per estrapolare l'orario dal formato data che gli passo
         getDateTime(dateStr) {
-            const myDate = dt.fromFormat(dateStr, "dd/mm/yyyy hh:mm:ss");
+            const myDate = dt.fromFormat(dateStr, "dd/MM/yyyy HH:mm:ss");
             return myDate.toLocaleString(dt.TIME_24_SIMPLE);
         },
 
         // funzione di comodità per prendere la data in questo momento
         getNowDate() {
             return dt.now().toFormat("dd/MM/yyyy HH:mm:ss");
+        },
+
+        show(index) {
+            console.log(index);
         }
     }
 }).mount('#app')

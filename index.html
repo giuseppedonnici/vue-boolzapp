@@ -13,7 +13,7 @@
     <!-- My Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Vue -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
@@ -55,14 +55,16 @@
                         <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="nameToCheck" @keyup="check(nameToCheck)">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="nameToCheck"
+                            @keyup="check(nameToCheck)">
                     </div>
                 </div>
                 <!-- /Search -->
 
                 <!-- Contacts List -->
                 <ul class="contacts-list">
-                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts" @click="activeContact(index)" v-show="contact.visible">
+                    <li :class="{'active' : index === activeIndex}" class="contact" v-for="(contact, index) in contacts"
+                        @click="activeContact(index)" v-show="contact.visible">
                         <div class="contact-image">
                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar ${contact.name}`">
                         </div>
@@ -83,7 +85,8 @@
                 <!-- Header -->
                 <header class="chat-header">
                     <div class="chat-image">
-                        <img :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" :alt="`avatar ${contacts[activeIndex].name}`">
+                        <img :src="`img/avatar${contacts[activeIndex].avatar}.jpg`"
+                            :alt="`avatar ${contacts[activeIndex].name}`">
                     </div>
                     <div class="chat-text">
                         <h4 class="name">{{contacts[activeIndex].name}}</h4>
@@ -102,11 +105,12 @@
                         <div class="msg" :class="message.status">
                             <p class="txt">{{message.message}}</p>
                             <p class="time">{{ getDateTime(message.date) }}</p>
-                            <span class="angle-down d-none"><i class="fa-solid fa-angle-down"></i></span>
+                            <span class="angle-down d-none"><i class="fa-solid fa-angle-down" @click="show(index)"></i></span>
                             <div class="msg-options">
                                 <p class="msg-info">Message info</p>
                                 <p class="msg-delete">Delete message</p>
                             </div>
+
                         </div>
                     </div>
 
@@ -119,17 +123,18 @@
 
                 </main>
                 <!-- /Main -->
-    
+
                 <!-- Footer -->
                 <footer class="chat-footer">
                     <div class="smile">
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage.message" @keyup.enter="messageToPush">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage.message"
+                        @keyup.enter="messageToPush">
                     <div class="microphone">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
-    
+
                 </footer>
                 <!-- /Footer -->
             </div>
