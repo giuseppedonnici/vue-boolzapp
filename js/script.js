@@ -253,6 +253,12 @@ createApp({
         showOptions(index) {
             this.messageIndex = index,
             this.isMessageActive = !this.isMessageActive;
+        },
+
+        // funzione che mi permette di eliminare il messaggio attivo
+        deleteMessage(index) {
+            this.contacts[this.activeIndex].messages.splice(index, 1);
+            this.isMessageActive = false;
         }
     }
 }).mount('#app')

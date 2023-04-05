@@ -121,9 +121,8 @@
                             <div class="msg-options" 
                             :class="{'display' : isMessageActive && messageIndex === index}">
                                 <p class="msg-info">Message info</p>
-                                <p class="msg-delete">Delete message</p>
+                                <p class="msg-delete" @click="deleteMessage(index)">Delete message</p>
                             </div>
-
                         </div>
                     </div>
 
