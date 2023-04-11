@@ -158,6 +158,8 @@ ul li img {
 
 .contact-text {
     width: 175px;
+    word-break: break-word;
+    overflow-y: hidden;
 }
 
 .contact-time,

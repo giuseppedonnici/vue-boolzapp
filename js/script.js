@@ -250,15 +250,38 @@ createApp({
         },
 
         // funzione per gestire la visualizzazione delle opzioni sul singolo messaggio
-        showOptions(index) {
-            this.messageIndex = index,
+        showOptions(clickedIndex) {
+            this.messageIndex = clickedIndex,
             this.isMessageActive = !this.isMessageActive;
         },
 
         // funzione che mi permette di eliminare il messaggio attivo
-        deleteMessage(index) {
-            this.contacts[this.activeIndex].messages.splice(index, 1);
+        deleteMessage(indexToRemove) {
+            this.contacts[this.activeIndex].messages.splice(indexToRemove, 1);
             this.isMessageActive = false;
+        },
+
+        // funzione che mi permette di prendere l'ultimo messaggio dell'array di messaggi (se ce ne sono)
+        getLastMessage(index) {
+            const messages = this.contacts[index].messages;
+            if(messages.length > 0) {
+                let lastMessage = messages[messages.length - 1].message;
+                if(lastMessage.length > 20) {
+                    lastMessage = lastMessage.substring(0,20) + "...";
+                }
+                return lastMessage;
+            } else {
+                return "Non hai ancora messaggi";
+            }
+        },
+
+        // funzione che mi permettere di prendere l'orario dell'ultimo messaggio dell'array di messaggi (se ce ne sono)
+        getLastMessageHour(index) {
+            const messages = this.contacts[index].messages;
+            if(messages.length > 0) {
+                let lastMessageHour = messages[messages.length - 1].date;
+                return lastMessageHour;
+            }
         }
     }
 }).mount('#app')
